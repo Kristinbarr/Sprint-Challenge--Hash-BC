@@ -11,24 +11,30 @@ def get_indices_of_item_weights(weights, length, limit):
 
     # loop through weight arr and insert into hash table
     for i in range(length):
-        print('\nWEIGHT:', weights[i])
         # weight is key and index is value
         hash_table_insert(ht, weights[i], i)
 
-    weight1 = weights[0]
-    weight2 = weights[0]
+    # save an array and add to the array when a match is found
+    weight_list = []
 
     # loop through looking for weights
-    while 
-    
-    # if both indexes are the same, no match was found, return None
-    if weight1.value == weight2.value:
+    for weight in weights:
+        weight2 = limit - weight
+        
+        index2 = hash_table_retrieve(ht, weight2)
+        #  weight2 index is valid and not inside the weight list
+        if index2 and (index2 not in weight_list):
+            weight_list.append(index2)
+        elif index2 and (index2 in weight_list):
+            for i in range(length):
+                if limit - weight2 == weights[i] and (i not in weight_list):
+                    weight_list.append(i)
+
+    if len(weight_list) == 0:
         return None
     else:
-        # returns a tuple of 2 weights
-        if weight2 > weight1:
-            weight1, weight2 = weight2, weight1
-        return (weight, weight)
+        weight_list.sort(reverse=True)
+        return weight_list
 
 
 def print_answer(answer):
