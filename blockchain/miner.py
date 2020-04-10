@@ -23,19 +23,15 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = randint(0, 1000000)
-    print('PROOF:',proof)
+    proof = randint(0, 100000000000)
 
     # get the last block's proof encoded then hashed
     hashed_proof = f"{last_proof}".encode()
-    last_hash = hashlib.sha256(hashed_proof).hexdigest()
-    print('lasthash:', last_hash)
-    
+    last_hash = hashlib.sha256(hashed_proof).hexdigest()    
 
     while valid_proof(last_hash, proof) is False:
         proof += 1
 
-    print('!!!')
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
 
