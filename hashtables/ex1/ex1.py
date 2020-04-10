@@ -9,11 +9,22 @@ from hashtables import (HashTable,
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
 
-    """
-    YOUR CODE HERE
-    """
+    # iterate through weights
+    for i in range(length):
+        # insert each weight into hash table w index as value
+        hash_table_insert(ht, weights[i], i)
 
-    return None
+    for i in range(length):
+
+        # to get match, subtract cur weight from limit
+        match = limit - weights[i]
+        # get index of match
+        match_idx = hash_table_retrieve(ht, match)
+
+        # check if match is in ht
+        if match_idx is not None:
+            # return tuple of indexes, () higher, lower )
+            return (match_idx, i)
 
 
 def print_answer(answer):
