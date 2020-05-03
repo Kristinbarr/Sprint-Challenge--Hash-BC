@@ -24,11 +24,25 @@ This sprint challenge is divided up into three parts:  Hash tables coding, block
 
 Explain in detail the workings of a dynamic array:
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+
+-Access an array: O(1) if you have the index you are trying to access
+-Adding to front: always O(n) since all elements need to be shifted
+-Removing from front: always O(n) since all elements need to be shifted
+-Adding to end: either be O(1) if there are open spaces or O(n) is more spaces are needed to reallocate memory
+-Removing from end: O(1)
+
 * What is the worse case scenario if you try to extend the storage size of a dynamic array?
 
+Worst case would be if there isn't enough storage for a new large size of an array. Also a longer array is slower since there is more information.
+
 Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
- 
+
+Blockchain is a series of blocks that contain encoded information from the previous block. Each block has an index, timestamp, transactions, proof, and hash of the previous block. It starts with a genesis block and hashing of the current block's data is done to prove the validity of each block is dependant on the block before it. Once a specific criteria is met, a new block can be created. The proof is the number of times it took to meet that specific criteria and the hash is saved in the new block.
+
 Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+
+The proof of work function operates by translating the latest hash into a string and hashing that data as a guess which is compared specific criteria. Once a hash matches the criteria, a new block can be forged. The count of guesses is kept as the proof and the hash and proof are then saved in the new block.
+
 
 ## Project Set Up
 
